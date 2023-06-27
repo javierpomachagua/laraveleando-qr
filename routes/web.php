@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,38 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/url', function () {
+    return view('url');
+});
+
+Route::get('/geo', function () {
+    return view('geo');
+});
+
+Route::get('/phone', function () {
+    return view('phone');
+});
+
+Route::get('/mail', function () {
+    return view('mail');
+});
+
+Route::get('/sms', function () {
+    return view('sms');
+});
+
+Route::get('/whatsapp', function () {
+    return view('whatsapp');
+});
+
+Route::get('/wifi', function () {
+    return view('wifi');
+});
+
+Route::get('/product', function () {
+    return view('product');
 });
 
 Route::get('/dashboard', function () {
