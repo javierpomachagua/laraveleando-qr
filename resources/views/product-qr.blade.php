@@ -16,11 +16,14 @@
 <body class="antialiased">
 <div
     class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-    <div class="max-w-7xl bg-blue-400 px-10 py-20 rounded-xl text-center flex flex-col gap-2 items-center text-white">
-        <p>Nombre: <span class="block font-semibold">{{ $product->name }}</span></p>
-        <p>Descripción: <span class="block font-semibold">{{ $product->description }}</span></p>
-        <p>Precio: <span class="block font-semibold">{{ $product->price }}</span></p>
-        <p>Uuid: <span class="block font-semibold">{{ $product->uuid }}</span></p>
+    <div class="max-w-7xl bg-blue-400 px-10 py-20 rounded-xl text-center flex flex-col items-center">
+        <h1 class="text-white text-3xl font-bold mb-2">QR CODE</h1>
+
+        <div class="bg-white p-2">
+            {{ QrCode::size(150)->generate(route('products.show', $product->uuid)) }}
+        </div>
+
+        <p class="text-white mt-2 text-sm">Ver el producto</p>
     </div>
 </div>
 </body>
