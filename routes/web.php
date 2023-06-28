@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
@@ -47,9 +48,16 @@ Route::get('/wifi', function () {
     return view('wifi');
 });
 
-Route::get('/product', function () {
-    return view('product');
+Route::get('/product-qr', function () {
+
+    $product = Product::all()->random();
+
+    return view('product-qr', compact('product'));
 });
+
+Route::get('/products/{product:uuid}', function (Product $product) {
+    return view('product', compact('product'));
+})->name('products.show');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
